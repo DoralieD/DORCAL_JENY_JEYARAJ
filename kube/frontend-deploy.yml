@@ -15,5 +15,7 @@ spec:
       containers:
       - name: frontend
         image: doralie/journal-front:1.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
+      restartPolicy: Always
