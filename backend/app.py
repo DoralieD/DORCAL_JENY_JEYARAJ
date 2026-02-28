@@ -7,13 +7,13 @@ def get_db_connection():
     r = 5
     while r > 0:
         try:
-            conn = mysql.connector.connect(
+            c = mysql.connector.connect(
                 host=os.getenv('DB_HOST', 'mysql-service'),
                 user='root',
                 password=os.getenv('DB_PASSWORD', 'rootpassword'),
                 database='journaldb'
             )
-            return conn
+            return c
         except:
             time.sleep(5)
             r -= 1
