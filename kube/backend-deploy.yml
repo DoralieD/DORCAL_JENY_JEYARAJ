@@ -11,16 +11,32 @@ spec:
     metadata:
       labels:
         app: backend
+      annotations:
+        sidecar.istio.io/inject: "true" # Active Istio
     spec:
       containers:
       - name: backend
+        # --- IMAGE EXACTE ---
         image: doralie/journal-back:1.0
-        imagePullPolicy: IfNotPresent
+        # --------------------
         ports:
         - containerPort: 5000
         env:
         - name: DB_HOST
           value: "mysql-service"
         - name: DB_PASSWORD
-          value: "rootpassword"
-      restartPolicy: Always
+          valueFrom:
+            secretKeyRef:
+              name: journal-secrets
+              key: db-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+    - port: 5000
+      targetPort: 5000
