@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
-import requests
-import os
+import os, requests
 
 app = Flask(__name__)
 
@@ -9,17 +8,17 @@ BACKEND_URL = "http://backend-service:5000/api/entries"
 @app.route('/')
 def index():
     try:
-        response = requests.get(BACKEND_URL)
-        entries = response.json()
+        r = requests.get(BACKEND_URL)
+        e = r.json()
     except:
-        entries = []
-    return render_template('index.html', entries=entries)
+        e = []
+    return render_template('index.html', entries=e)
 
 @app.route('/add', methods=['POST'])
 def add_entry():
-    content = request.form.get('content')
-    if content:
-        requests.post(BACKEND_URL, json={"content": content})
+    c = request.form.get('content')
+    if c:
+        requests.post(BACKEND_URL, json={"content": c})
     return redirect('/')
 
 if __name__ == '__main__':
