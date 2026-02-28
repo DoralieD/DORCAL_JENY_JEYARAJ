@@ -12,13 +12,11 @@ spec:
       labels:
         app: backend
       annotations:
-        sidecar.istio.io/inject: "true" # Active Istio
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
       - name: backend
-        # --- IMAGE EXACTE ---
         image: doralie/journal-back:1.0
-        # --------------------
         ports:
         - containerPort: 5000
         env:
@@ -29,14 +27,3 @@ spec:
             secretKeyRef:
               name: journal-secrets
               key: db-password
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-spec:
-  selector:
-    app: backend
-  ports:
-    - port: 5000
-      targetPort: 5000
