@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: backend
-        image: doralie/journal-back:1.0 
+        image: doralie/journal-back:1.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
         env:
@@ -22,14 +23,4 @@ spec:
           value: "mysql-service"
         - name: DB_PASSWORD
           value: "rootpassword"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-spec:
-  selector:
-    app: backend
-  ports:
-    - port: 5000
-      targetPort: 5000
+      restartPolicy: Always
