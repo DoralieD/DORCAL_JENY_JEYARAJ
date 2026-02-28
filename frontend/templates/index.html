@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Journal Intime</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <h1 class="text-center mb-4">Mon Journal Secret</h1>
+    
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <form action="/add" method="post">
+                <div class="mb-3">
+                    <textarea name="content" class="form-control" rows="3" placeholder="Cher journal, aujourd'hui..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="list-group shadow-sm">
+        {% for entry in entries %}
+        <div class="list-group-item">
+            <small class="text-muted">{{ entry.date }}</small>
+            <p class="mb-1 mt-2">{{ entry.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
