@@ -7,11 +7,13 @@ Ce projet consiste en une application de "journal intime" développée en Python
 - **Jeen Juvana JENY JEYARAJ (22519719)**
 
 ## Structure du projet 
+```text
 DORCAL_JENY_JEYARAJ/
 ├── frontend/     # Application Python (interface)
 ├── backend/      # Application Python (logique métier)
 ├── kube/         # Manifests Kubernetes (déploiements, services, base de données MySQL, sécurité)
 └── README.md
+```
 
 ## Prérequis 
 - Docker
