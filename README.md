@@ -1,30 +1,31 @@
-# Projet : Journal Intime - Microservices & Sécurité Kubernetes
+# Projet : Notre Journal Intime - Microservices & Sécurité Kubernetes
 
 Ce projet consiste en une application de "journal intime" développée en Python, conteneurisée avec Docker et orchestrée via Kubernetes.
 
 ## Auteurs 
-- **DORCAL**
-- **JENY JEYARAJ**
+- **Doralie DORCAL (22208270)**
+- **Jeen Juvana JENY JEYARAJ (22519719)**
 
 ## Structure du projet 
 ```text
 DORCAL_JENY_JEYARAJ/
-├── frontend/          # Application Python (interface)
-├── backend/           # Application Python (logique métier)
-├── kube/              # Manifests Kubernetes (déploiements, services, base de données MySQL, sécurité)
+├── frontend/       # Application Python (interface)
+├── backend/        # Application Python (logique métier)
+├── kube/           # Manifests Kubernetes (déploiements, services, base de données MySQL, sécurité)
 └── README.md
+```
 
 ```markdown
 ## Prérequis 
 - Docker
 - Minikube
 - Kubectl
+```
 
 **Configuration DNS locale (Indispensable) :** 
 Pour accéder au projet via l'URL `http://journalintime.info`, vous devez éditer votre fichier `hosts` :
 - **Windows :** `C:\windows\system32\drivers\etc\hosts`
 - **Linux/macOS :** `/etc/hosts`
-```
 
 Ajoutez cette ligne à la fin du fichier :
 ```text
