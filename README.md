@@ -9,18 +9,16 @@ Ce projet consiste en une application de "journal intime" développée en Python
 ## Structure du projet 
 ```text
 DORCAL_JENY_JEYARAJ/
-├── frontend/       # Application Python (interface)
-├── backend/        # Application Python (logique métier)
-├── kube/           # Manifests Kubernetes (déploiements, services, base de données MySQL, sécurité)
+├── frontend/     # Application Python (interface)
+├── backend/      # Application Python (logique métier)
+├── kube/         # Manifests Kubernetes (déploiements, services, base de données MySQL, sécurité)
 └── README.md
 ```
 
-```markdown
 ## Prérequis 
 - Docker
 - Minikube
 - Kubectl
-```
 
 **Configuration DNS locale (Indispensable) :** 
 Pour accéder au projet via l'URL `http://journalintime.info`, vous devez éditer votre fichier `hosts` :
